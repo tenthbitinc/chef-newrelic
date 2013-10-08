@@ -22,8 +22,18 @@ case node['platform']
             owner "root"
             group node['newrelic']['config_file_group']
             mode "640"
+
+            license_key = node['newrelic']['server_monitoring']['license']
+            if !license_key['data_bag_name'].empty?
+                data_bag_name = license_key['data_bag_name']
+                data_bag_item = license_key['data_bag_item']
+                data_bag_value = license_key['data_bag_value']
+                data_bag_object = Chef::EncryptedDataBagItem.load(data_bag_name, data_bag_item)
+                license_key = data_bag_object[data_bag_value]
+            end
+
             variables(
-                :license => node['newrelic']['server_monitoring']['license'],
+                :license => license_key,
                 :logfile => node['newrelic']['server_monitoring']['logfile'],
                 :loglevel => node['newrelic']['server_monitoring']['loglevel'],
                 :proxy => node['newrelic']['server_monitoring']['proxy'],
