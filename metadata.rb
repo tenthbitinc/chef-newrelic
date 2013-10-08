@@ -10,13 +10,13 @@ version          "0.5.3"
 supports os
 end
 
-depends "php"
-depends "python"
-depends "ms_dotnet4"
+#depends "php"
+#depends "python"
+#depends "ms_dotnet4"
 
 recipe "newrelic", "Adds the New Relic repository, installs & configures the New Relic server monitor package."
 recipe "newrelic::repository", "Adds the New Relic repository."
 recipe "newrelic::server-monitor", "Installs & configures the New Relic server monitor package."
-recipe "newrelic::php-agent", "Installs the New Relic PHP agent."
-recipe "newrelic::python-agent", "Installs the New Relic Python agent."
-recipe "newrelic::dotnet", "Installs New Relic .NET Agent"
+#recipe "newrelic::php-agent", "Installs the New Relic PHP agent."
+#recipe "newrelic::python-agent", "Installs the New Relic Python agent."
+#recipe "newrelic::dotnet", "Installs New Relic .NET Agent"

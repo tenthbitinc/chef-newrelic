@@ -15,7 +15,7 @@ case node['platform']
         #trust the New Relic GPG Key
         #this step is required to tell apt that you trust the integrity of New Relic's apt repository
         gpg_key_id = node['newrelic']['repository_key']
-        gpg_key_url = "http://download.newrelic.com/#{gpg_key_id}.gpg"
+        gpg_key_url = "https://download.newrelic.com/#{gpg_key_id}.gpg"
 
         #update the local package list
         execute "newrelic-apt-get-update" do
